@@ -1,9 +1,10 @@
 import os
 import tempfile
-from dotenv import load_dotenv
 from pathlib import Path
 
-from src.settings import *
+from dotenv import load_dotenv
+
+from src import settings
 
 
 def test_api_keys():
@@ -35,17 +36,17 @@ def test_api_keys():
 
 
 def test_project_paths():
-    assert PROJECT_PATHS.ROOT_PATH.is_dir()
-    assert PROJECT_PATHS.PROJECT_PATH.is_dir()
-    assert PROJECT_PATHS.QUERIES_PATH.is_dir()
-    assert PROJECT_PATHS.DATA_PATH.is_dir()
-    assert PROJECT_PATHS.EXTERNAL_DATA.is_dir()
-    assert PROJECT_PATHS.INTERIM_DATA.is_dir()
-    assert PROJECT_PATHS.PROCESSED_DATA.is_dir()
-    assert PROJECT_PATHS.RAW_DATA.is_dir()
-    assert PROJECT_PATHS.MODEL_DATA.is_dir()
+    assert settings.PROJECT_PATHS.ROOT_PATH.is_dir()
+    assert settings.PROJECT_PATHS.PROJECT_PATH.is_dir()
+    assert settings.PROJECT_PATHS.QUERIES_PATH.is_dir()
+    assert settings.PROJECT_PATHS.DATA_PATH.is_dir()
+    assert settings.PROJECT_PATHS.EXTERNAL_DATA.is_dir()
+    assert settings.PROJECT_PATHS.INTERIM_DATA.is_dir()
+    assert settings.PROJECT_PATHS.PROCESSED_DATA.is_dir()
+    assert settings.PROJECT_PATHS.RAW_DATA.is_dir()
+    assert settings.PROJECT_PATHS.MODEL_DATA.is_dir()
 
 
 def test_processing_var():
-    assert isinstance(PROCESSING_VAR.MIN_NUMBER_WORDS, int)
-    assert isinstance(PROCESSING_VAR.MAX_NUMBER_WORDS, int)
+    assert isinstance(settings.PROCESSING_VAR.MIN_NUMBER_WORDS, int)
+    assert isinstance(settings.PROCESSING_VAR.MAX_NUMBER_WORDS, int)
